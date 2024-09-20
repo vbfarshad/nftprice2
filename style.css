@@ -43,7 +43,7 @@ h1 {
     margin-right: 15px;
 }
 
-/* Table styles with animated border */
+/* Table styles with thin animated border */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -53,34 +53,34 @@ table {
     background-color: white;
     border-radius: 8px;
     overflow: hidden;
+    border: 1px solid #ccc;  /* Thin solid border around the table */
 }
 
-/* Animated border */
+/* Thinner animated border */
 table:before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
     background: linear-gradient(90deg, #00dbde, #fc00ff);
     z-index: -1;
-    filter: blur(10px);
-    opacity: 0.8;
+    opacity: 0.7;
     border-radius: 8px;
-    animation: borderGlow 4s infinite linear;
+    animation: borderGlowThin 6s infinite linear;
 }
 
-/* Glow animation keyframes */
-@keyframes borderGlow {
+/* Subtle glow animation keyframes */
+@keyframes borderGlowThin {
     0% {
-        filter: blur(5px);
+        opacity: 0.5;
     }
     50% {
-        filter: blur(20px);
+        opacity: 0.9;
     }
     100% {
-        filter: blur(5px);
+        opacity: 0.5;
     }
 }
 
