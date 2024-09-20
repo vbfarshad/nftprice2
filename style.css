@@ -1,16 +1,13 @@
-/* General styles */
+/* General styles (applies to both modes) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f5f5f5;
-    color: #333;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 30px;
-    color: #222;
 }
 
 #prices {
@@ -20,43 +17,26 @@ h1 {
     gap: 30px;
 }
 
-/* Collection styles */
 .collection {
-    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 400px;
     padding: 15px;
     margin-bottom: 30px;
+    width: 400px;
     position: relative;
     z-index: 1;
 }
 
-.collection-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.collection-header img {
-    border-radius: 50%;
-    margin-right: 15px;
-}
-
-/* Table styles with thin animated border */
+/* Table styles */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 15px;
-    position: relative;
-    z-index: 1;
-    background-color: white;
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid #ccc;  /* Thin solid border around the table */
+    border: 1px solid #ccc;
+    position: relative;
 }
 
-/* Thinner animated border */
 table:before {
     content: "";
     position: absolute;
@@ -71,7 +51,6 @@ table:before {
     animation: borderGlowThin 6s infinite linear;
 }
 
-/* Subtle glow animation keyframes */
 @keyframes borderGlowThin {
     0% {
         opacity: 0.5;
@@ -91,16 +70,11 @@ th, td {
 }
 
 th {
-    background-color: #f8f8f8;
     font-weight: bold;
 }
 
 tr:hover {
     background-color: #f1f1f1;
-}
-
-img {
-    border-radius: 4px;
 }
 
 /* Icon styles */
@@ -109,25 +83,79 @@ td img {
     vertical-align: middle;
 }
 
-td a {
-    text-decoration: none;
-    margin-right: 10px;
-}
-
 td a img {
     width: 24px;
     height: 24px;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-    #prices {
-        flex-direction: column;
-        align-items: center;
-    }
+/* Toggle button */
+#toggle-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-    .collection {
-        width: 100%;
-        max-width: 600px;
-    }
+#theme-toggle {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#theme-toggle:hover {
+    background-color: #555;
+}
+
+/* Light Mode */
+.light-mode {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.light-mode .collection {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode th {
+    background-color: #f8f8f8;
+}
+
+.light-mode td {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #181818;
+    color: #e0e0e0;
+}
+
+.dark-mode .collection {
+    background-color: #242424;
+    color: #f5f5f5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode th {
+    background-color: #333;
+    color: #f5f5f5;
+}
+
+.dark-mode td {
+    border-bottom: 1px solid #444;
+}
+
+.dark-mode tr:hover {
+    background-color: #333;
+}
+
+.dark-mode #theme-toggle {
+    background-color: #ddd;
+    color: #333;
+}
+
+.dark-mode #theme-toggle:hover {
+    background-color: #bbb;
 }
