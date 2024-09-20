@@ -1,156 +1,28 @@
-/* General styles (applies to both modes) */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-#prices {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 30px;
-}
-
-.collection {
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 30px;
-    width: 400px;
-    position: relative;
-    z-index: 1;
-}
-
-/* Table styles */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #ccc;
-    position: relative;
-}
-
-table:before {
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(90deg, #00dbde, #fc00ff);
-    z-index: -1;
-    opacity: 0.7;
-    border-radius: 8px;
-    animation: borderGlowThin 6s infinite linear;
-}
-
-@keyframes borderGlowThin {
-    0% {
-        opacity: 0.5;
-    }
-    50% {
-        opacity: 0.9;
-    }
-    100% {
-        opacity: 0.5;
-    }
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    font-weight: bold;
-}
-
-tr:hover {
-    background-color: #f1f1f1;
-}
-
-/* Icon styles */
-td img {
-    margin-right: 5px;
-    vertical-align: middle;
-}
-
-td a img {
-    width: 24px;
-    height: 24px;
-}
-
-/* Toggle button */
+/* Toggle button (repositioned to top-right corner, rounder, and smaller) */
 #toggle-container {
-    text-align: center;
-    margin-bottom: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
 }
 
 #theme-toggle {
-    padding: 10px 20px;
+    padding: 8px 16px;
     background-color: #333;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px; /* Rounder shape */
     cursor: pointer;
+    font-size: 14px; /* Smaller text */
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #theme-toggle:hover {
     background-color: #555;
+    transform: scale(1.05); /* Slight scale effect on hover */
 }
 
-/* Light Mode */
-.light-mode {
-    background-color: #f5f5f5;
-    color: #333;
-}
-
-.light-mode .collection {
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.light-mode th {
-    background-color: #f8f8f8;
-}
-
-.light-mode td {
-    border-bottom: 1px solid #ddd;
-}
-
-/* Dark Mode */
-.dark-mode {
-    background-color: #181818;
-    color: #e0e0e0;
-}
-
-.dark-mode .collection {
-    background-color: #242424;
-    color: #f5f5f5;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-.dark-mode th {
-    background-color: #333;
-    color: #f5f5f5;
-}
-
-.dark-mode td {
-    border-bottom: 1px solid #444;
-}
-
-.dark-mode tr:hover {
-    background-color: #333;
-}
-
+/* Dark mode button in dark mode */
 .dark-mode #theme-toggle {
     background-color: #ddd;
     color: #333;
