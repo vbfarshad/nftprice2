@@ -28,6 +28,8 @@ h1 {
     width: 400px;
     padding: 15px;
     margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
 }
 
 .collection-header {
@@ -41,11 +43,45 @@ h1 {
     margin-right: 15px;
 }
 
-/* Table styles */
+/* Table styles with animated border */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Animated border */
+table:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, #00dbde, #fc00ff);
+    z-index: -1;
+    filter: blur(10px);
+    opacity: 0.8;
+    border-radius: 8px;
+    animation: borderGlow 4s infinite linear;
+}
+
+/* Glow animation keyframes */
+@keyframes borderGlow {
+    0% {
+        filter: blur(5px);
+    }
+    50% {
+        filter: blur(20px);
+    }
+    100% {
+        filter: blur(5px);
+    }
 }
 
 th, td {
